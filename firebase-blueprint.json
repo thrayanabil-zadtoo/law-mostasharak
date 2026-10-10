@@ -1,0 +1,38 @@
+{
+  "entities": {
+    "consultationBooking": {
+      "title": "Consultation Booking",
+      "description": "A scheduled legal consultation booking between a client and a certified lawyer",
+      "type": "object",
+      "properties": {
+        "bookingCode": { "type": "string", "description": "Unique booking reference code" },
+        "lawyerId": { "type": "string", "description": "ID of the lawyer" },
+        "lawyerName": { "type": "string", "description": "Full name of the lawyer" },
+        "clientName": { "type": "string", "description": "Client full name" },
+        "clientPhone": { "type": "string", "description": "Client contact phone number" },
+        "mode": { "type": "string", "enum": ["office", "encrypted_call", "written"] },
+        "fee": { "type": "number", "description": "Consultation fee amount" },
+        "status": { "type": "string", "enum": ["confirmed", "pending", "completed", "cancelled"] },
+        "createdAt": { "type": "string", "description": "ISO date string" }
+      },
+      "required": ["bookingCode", "lawyerId", "clientName", "clientPhone", "mode", "status"]
+    },
+    "caseFile": {
+      "title": "Legal Case File",
+      "description": "Structured legal dossier containing facts, parties, and evidence checklist",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Case title" },
+        "category": { "type": "string", "description": "Case category" },
+        "summary": { "type": "string", "description": "Facts summary" },
+        "completenessScore": { "type": "number", "description": "Percentage readiness score 0-100" },
+        "status": { "type": "string", "enum": ["draft", "ready_for_lawyer", "in_litigation"] },
+        "createdAt": { "type": "string", "description": "ISO date string" }
+      },
+      "required": ["title", "category", "completenessScore", "status"]
+    }
+  },
+  "firestore": {
+    "defaultRules": "allow read, write: if true;"
+  }
+}

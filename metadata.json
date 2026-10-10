@@ -1,0 +1,6 @@
+{
+  "name": "مستشارك القانوني | LAW Mostasharak",
+  "description": "المنصة القانونية المصرية المتكاملة - استشارات ذكية، موسوعة تشريعية، تحليل العقود، ودليل المحامين المعتمدين وبوابة الربط الموحدة",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Consultation Bookings
+    match /consultationBookings/{bookingId} {
+      allow read, write: if true;
+    }
+
+    // Case Files
+    match /caseFiles/{fileId} {
+      allow read, write: if true;
+    }
+
+    // Chat Sessions and queries
+    match /chatSessions/{sessionId} {
+      allow read, write: if true;
+    }
+
+    // Default match for other collections
+    match /{document=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}
